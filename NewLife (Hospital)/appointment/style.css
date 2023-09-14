@@ -1,0 +1,15 @@
+.some-clss{
+    background-color: rgb(200, 236, 240);
+    border: 2px solid rgb(51, 17, 221);
+    padding: 2em 1em;
+    margin: 2em 1em;
+    border-radius: 1cm;
+}
+button{
+    border-radius: 1cm;
+    color: rgb(24, 66, 219);
+    background-color: rgb(61, 213, 230);
+}
+button.hover{
+    background-color: rgb(230, 242, 242) ;
+}

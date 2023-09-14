@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+
+  <style>
+    body {
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://res.cloudinary.com/coneaholic/image/upload/v1660836368/Spandan/img_3_numdxr.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Cormorant SC', serif;
+      background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+  </style>
+
+  <title>Appointment</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark rounded-3" style="background-color: gray;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Spandan Hospital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/home_page/home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/appointment/appbook.html">Book-Appointment</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Show Appointments
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/appointment/show.html">All</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/appointment/show1.html">Approved</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/appointment/show2.html">Pending</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/appointment/show3.html">Rejected</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/extra/info.html">Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/extra/healthytips.html">Healthy Tips <span
+                class="badge bg-secondary">New</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="col-6 offset-3 mt-5">
+    <h1 class="text-center text-light">Book Appointment</h1>
+    <form id="book-appointment">
+      <div class="mb-3">
+        <label class="form-label text-light" for="name">Name</label>
+        <input class="form-control" type="text" id="name" name="name" required>
+        <div class="valid-feedback">
+          Filled!!
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light" for="contact">Contact</label>
+        <input class="form-control" type="text" id="contact" name="contact" required>
+        <div class="valid-feedback">
+          Filled!!
+        </div>
+      </div>
+
+      <div>
+        <label class="form-label text-light" for="case">Case Type</label>
+      </div>
+
+      <div class="input-group mb-3">
+        <select class="form-select" name="case" id="case">
+          <option value="New">New</option>
+          <option value="Old">Old</option>
+          <option value="Emergency">Emergency</option>
+        </select>
+        <label class="input-group-text" for="case">Case Type</label>
+      </div>
+
+      <div>
+        <label class="form-label text-light" for="section">Section</label>
+      </div>
+
+      <div class="input-group mb-3">
+        <select class="form-select" name="section" id="section">
+          <option value="Genral">Genral</option>
+          <option value="Brain">Brain</option>
+          <option value="Lung">Lung</option>
+          <option value="Heart">Heart</option>
+          <option value="Surgery">Surgery</option>
+        </select>
+        <label class="input-group-text" for="section">Department</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light" for="Time">Time</label>
+        <input class="form-control" type="datetime-local" id="time" name="time" required>
+        <div class="valid-feedback">
+          Filled!!
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-success">Book</button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="py-3  my-4 footer bg-dark py-3 mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="/home_page/home.html" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="appbook.html" class="nav-link px-2 text-muted">Book-Appointment</a></li>
+      <li class="nav-item"><a href="show.html" class="nav-link px-2 text-muted">Show</a></li>
+      <li class="nav-item"><a href="/extra/info.html" class="nav-link px-2 text-muted">Info</a></li>
+      <li class="nav-item"><a href="/extra/healthytips.html" class="nav-link px-2 text-muted">Healthy Tips</a></li>
+    </ul>
+    <ul class="text-center text-muted">© 2001, Spandan Hospital</ul>
+  </footer>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDp1v-VJRtFZCsD3jEKo5uWsrWkbOUKbiM",
+      authDomain: "hospital-project-99e07.firebaseapp.com",
+      projectId: "hospital-project-99e07",
+      storageBucket: "hospital-project-99e07.appspot.com",
+      messagingSenderId: "905406534409",
+      appId: "1:905406534409:web:19d9334069fa3a9cc7f9d8",
+      measurementId: "G-3X5GJ9WCKX"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    db.settings({ timestampsInSnapshots: true }); 
+  </script>
+
+  <script src="appbook.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spandan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <style>
+          body {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url("https://res.cloudinary.com/coneaholic/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1660852488/Spandan/image_7_hqvqi0.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Cormorant SC', serif;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          }
+        </style>
+        
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark rounded-3" style="background-color: gray;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Spandan Hospital</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/extra/healthytips.html">Healthy Tips <span class="badge bg-secondary">New</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/extra/info.html">Info</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+
+      <div class="container my-5 d-flex justify-content-center align-items-center mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://res.cloudinary.com/coneaholic/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1660836803/Spandan/istockphoto-1220974375-612x612_ewje7z.jpg"
+                        alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Login</h5>
+                        
+                        <form id="login-form">
+                            <div class="mb-3">
+                                <label class="form-label" for="login-email">Email</label>
+                                <input class="form-control" type="email" id="login-email" name="login-email" autofocus required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label" for="login-password">Password</label>
+                                <input class="form-control" type="password" id="login-password" name="login-password" required>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-success btn-block" style="width:100%">Login</button>
+                            </div>
+                            <div class="mb-3">
+                                <a href="signup.html" class="btn btn-danger btn-block" style="width:100%">Create Account</a>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-3  my-4 footer bg-dark py-3 mt-auto">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="signup.html" class="nav-link px-2 text-muted">SignUp</a></li>
+        <li class="nav-item"><a href="home.html" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="/extra/info.html" class="nav-link px-2 text-muted">Info</a></li>
+        <li class="nav-item"><a href="/extra/healthytips.html" class="nav-link px-2 text-muted">Healthy Tips</a></li>
+      </ul>
+      <ul class="text-center text-muted">© 2001, Spandan Hospital</ul>
+    </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyDp1v-VJRtFZCsD3jEKo5uWsrWkbOUKbiM",
+      authDomain: "hospital-project-99e07.firebaseapp.com",
+      projectId: "hospital-project-99e07",
+      storageBucket: "hospital-project-99e07.appspot.com",
+      messagingSenderId: "905406534409",
+      appId: "1:905406534409:web:19d9334069fa3a9cc7f9d8",
+      measurementId: "G-3X5GJ9WCKX"
+    };
+      firebase.initializeApp(config);
+      
+      // make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+  
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="auth.js"></script>
+</body>
+
+</html>
